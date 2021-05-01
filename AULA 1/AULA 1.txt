@@ -1,0 +1,117 @@
+SEMANA DO PYTHON
+
+AUTOMACAO DE SISTEMAS E PROCESSOS COM PYTHON
+1° LOGICA DE PROGRAMACAO 
+PASSO A PASSO DO QUE IRÁ SER REALIZADO
+- ENTRAR NO SISTEMA
+- ENTRAR NO CAMINHO DO ARQUIVO
+- FAZER O DOWNLOAD DO ARQUIVO
+- CALCULAR OS INDICADORES(FATURAMENTO E QTD DE PRODUTOS)
+- ENTRAR NO EMAIL
+- CRIAR EMAIL COM AS INFORMACOES
+- ENVIAR EMAIL PARA O RESPONSÁVEL 
+
+2° IMPORTAR BIBLIOTECAS
+- PYAUTOGUI (AUTOMACAO MOUSE E TECLADO)
+- TIME (CONTROLA O TEMPO DO PROGRAMA)
+- PYTERCLIP (ELA PERMITE COPIAR E COLAR COM PYTHON)
+
+3° COMANDOS
+SEMPRE MOSTRAR UM ALERTA PARA O USUARIO
+
+pyautogui.alert("O programa vai começa, não use seu computador enquanto isso.")
+
+ENTRAR NO SISTEMA
+
+pyautogui.PAUSE = 1 para aguardar 1seg cada comando feito
+pyautogui.hotkey('ctrl', 't') para abrir uma nova aba
+link = "link" criar uma varial com o link
+pyperclip.copy(link) para copiar o link 
+pyautogui.hotkey('ctrl', 'v') colar o link na aba
+pyautogui.press("enter") entrar no link
+time.sleep(5) aguardar entrar no sistema
+
+ENTRAR NO CAMINHO DO ARQUIVO
+
+*BUSCAR POSICAO
+time.sleep(5) para ter tempo de posicionar o mouse na outra aba
+pyautogui.position() mostrar a posicao exata da sua busca
+
+pyautogui.click(935, 669, clicks=2) posicao do eixo X e Y e cordenada de duplo click
+
+FAZER DOWNLOAD DO ARQUIVO
+
+*BUSCAR POSICAO
+time.sleep(5) para ter tempo de posicionar o mouse na outra aba
+pyautogui.position() mostrar a posicao exata da sua busca
+
+pyautogui.click(2027, 911) cordenadas dos clicks 
+pyautogui.click(3327, 392) cordenadas dos clicks
+pyautogui.click(2794, 1487) cordenadas dos clicks
+time.sleep(10)
+
+
+CALCULAR OS INDICADORES
+
+import pandas as pd  IMPORTAR PANDAS PARA CIENCIA DE DADOS E ABREVIADO PARA PD
+
+tabela = pd.read_excel(r"caminho do arquivo") ler e armazenar as informacoes na variavel
+display(tabela) exibir a tabela
+faturamento = tabela["Valor Final"].sum()  dentro da tabela na coluna do conchetes sera feito a soma e armezado resultado na variavel faturamento
+qtde_produtos =  tabela["Quantidade"].sum() dentro da tabela na coluna do conchetes sera feito a soma e armezado resultado na variavel qtde
+
+
+ENTRAR NO EMAIL
+*email da diretoria:email+diretoria@gmail.com
+
+pyautogui.hotkey('ctrl', 't') para abrir uma nova aba
+link = "link do gmail" criar uma varial com o link do gmail
+pyperclip.copy(link) para copiar o link 
+pyautogui.hotkey('ctrl', 'v') colar o link na aba
+pyautogui.press("enter") entrar no link
+time.sleep(5) aguardar entrar no sistema
+
+
+CRIAR EMAIL
+time.sleep(5) para ter tempo de posicionar o mouse na outra aba
+pyautogui.position() mostrar a posicao exata da sua busca
+
+pyautogui.click(247, 499) clicar no escrever
+time.sleep(3)
+pyautogui.write("email+diretoria@gmail.com")
+pyautogui.press("tab")
+pyautogui.press("tab")
+assunto = "Relatório de Vendas"
+pypercli.copy(assunto)
+pyautogui.hotkey("ctrl", "v")
+pyautogui.press("tab")
+texto_email = f"""
+Prezados, bom dia
+
+O faturamento foi de: R${faturamento}
+A quantidade vendida foi de:R${qtde_produtos}
+
+Abs,
+Jefferson Soares
+
+"""   essas tres aspas permite escrever com quebras de linhas  e o f significa que vai colocar uma variavel dentro das chaves
+pypercli.copy(texto_email)
+pyautogui.hotkey("ctrl", "v")
+
+
+ENVIAR EMAIL
+pyautohui.hotkey("ctrl","enter")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
